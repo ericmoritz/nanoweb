@@ -10,35 +10,34 @@ Here is a simple greeting application using Nano
 
     from nanoweb import FrontController
     import routes
-    from routes import RoutesMiddleware
+    from routes.middleware import RoutesMiddleware
     from webob.dec import wsgify
     from webob import Response
     
     apps = {}
-
-
+    
+    
     @wsgify
     def hello(request):
-        """A simple WSGI application that says, "Hello, World!""""
+        """A simple WSGI application that says, Hello, World!"""
         return Response("Hello, World!",
                         content_type="text/plain")
     apps['hello'] = hello
-
-
+    
+    
     @wsgify
     def goodbye(request):
-        """A simple WSGI application that says, "Goodbye Cruel World!""""
+        """A simple WSGI application that says, Goodbye Cruel World!"""
         return Response("Goodbye Cruel World!",
                         content_type="text/plain")
     apps['goodbye'] = goodbye
-
+    
     mapper = routes.Mapper()
     mapper.connect("/hello/", application="hello")
     mapper.connect("/goodbye/", application="goodbye")
-
+    
     application = FrontController(apps)
-    application = RoutesMiddleware(front, mapper)
-
+    application = RoutesMiddleware(application, mapper)
 
 There you have it, a simple WSGI application using nanoweb
 
