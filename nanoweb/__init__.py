@@ -93,6 +93,10 @@ class FrontController(object):
     @wsgify
     def __call__(self, request):
         match = request.urlvars
+
+        if "_method" in request.GET:
+            request.method = request.GET['_method']
+
         if match:
             inner_app = self.applications[match['application']]
             return request.get_response(inner_app)
