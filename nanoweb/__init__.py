@@ -5,6 +5,7 @@ from json_schema_validator.errors import ValidationError
 from json_schema_validator.schema import Schema
 from json_schema_validator.validator import Validator
 
+__version__ = "1.0rc1"
 
 content_types = {
     "json": "application/json",
@@ -32,7 +33,7 @@ def agent_accepts(request, offers):
             content_type = None
     else:
         content_type = request.accept.best_match(offers)
-        
+
     if content_type is None:
         raise exc.HTTPNotAcceptable("Offered: %s" % ("; ".join(offers), ))
     else:
@@ -49,14 +50,14 @@ def encode_body(content_type, data, encoders=encoders):
         encoder = encoders[content_type]
     except KeyError:
         raise ValueError("Unknown content-type: %s" % (content_type, ))
-    
+
     return encoder(data)
 
 def require_user(request):
     if request.remote_user is None:
         raise exc.HTTPUnauthorized()
 
-    
+
 def decode_body(request, json_schema=None, decoders=decoders):
     offers = decoders.keys()
     content_type = request.content_type
