@@ -1,14 +1,13 @@
 from setuptools import setup, find_packages
+import nanoweb
 import sys, os
 
-version = '0.1'
-
 setup(name='nanoweb',
-      version=version,
+      version=nanoweb.__version__,
       description="The nano web framework",
       long_description="""\
 The nano framework provides some glue for Webob and Routes.""",
-      classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      classifiers=[],
       keywords='WSGI',
       author='Eric Moritz',
       author_email='eric@themoritzfamily.com',
