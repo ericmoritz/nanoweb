@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 setup(name='nanoweb',
-      version="1.0rc1",
+      version="1.0",
       description="The nano web framework",
       long_description="""\
 The nano framework provides some glue for Webob and Routes.""",
