@@ -5,7 +5,7 @@ from json_schema_validator.errors import ValidationError
 from json_schema_validator.schema import Schema
 from json_schema_validator.validator import Validator
 
-__version__ = "1.0rc1"
+__version__ = "1.0"
 
 content_types = {
     "json": "application/json",

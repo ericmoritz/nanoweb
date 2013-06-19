@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
-import nanoweb
 import sys, os
 
 setup(name='nanoweb',
-      version=nanoweb.__version__,
+      version="1.0",
       description="The nano web framework",
       long_description="""\
 The nano framework provides some glue for Webob and Routes.""",
@@ -11,7 +10,7 @@ The nano framework provides some glue for Webob and Routes.""",
       keywords='WSGI',
       author='Eric Moritz',
       author_email='eric@themoritzfamily.com',
-      url='http://eric.themoritzfamily.com',
+      url='https://github.com/ericmoritz/nanoweb/',
       license='BSD',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
